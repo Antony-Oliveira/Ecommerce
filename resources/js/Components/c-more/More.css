@@ -1,0 +1,28 @@
+.more{
+    background-color: #060F1E;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.more h2 span{
+    color: #ef3636;
+}
+
+.more button{
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 30px;
+    color: #000;
+    background-color: #Fff;
+    cursor: pointer;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    transition: .2s ease;
+    margin-top: 10px;
+}
+button:hover{
+    background-color: #088178;
+    color: #fff;
+}
