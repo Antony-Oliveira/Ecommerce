@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -19,7 +20,7 @@ use Inertia\Inertia;
 */
 
 Route::get('/', [PageController::class, 'homepage']);
-
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.details');
 
 // Route::get('/teste', [PageController::class, 'teste'])->middleware('');
 

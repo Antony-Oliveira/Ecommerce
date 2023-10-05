@@ -34,9 +34,16 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show(int $id)
     {
-        //
+
+        $product = Product::find($id);
+        if(!$product){
+            abort(404);
+        }
+        return inertia('Details', [
+            'product' => $product
+        ]);
     }
 
     /**
