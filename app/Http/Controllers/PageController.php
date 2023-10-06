@@ -15,4 +15,16 @@ class PageController extends Controller
         ]);
 
     }
+    public function contactpage(){
+        return inertia('ContactPage');
+    }
+    public function aboutpage(){
+        return inertia('AboutPage');
+    }
+    public function storepage(){
+        return inertia('StorePage');
+    }
+    public function shoppingpage(){
+        return inertia('ShoppingPage');
+    }
 }

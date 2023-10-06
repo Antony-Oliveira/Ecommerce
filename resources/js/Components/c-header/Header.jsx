@@ -2,6 +2,8 @@ import menu from '@/assets/icons/menu.svg'
 import bag from '@/assets/icons/shopping-bag.svg'
 import './Header.css'
 import { useState, useEffect, useRef } from 'react';
+import { Link } from '@inertiajs/react';
+
 
 export default function Header() {
 
@@ -47,11 +49,11 @@ export default function Header() {
               <img src={menu} alt="Menu" className='w-5' />
           </a>  
           <ul className='nav'>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Store</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#"><img src={bag} alt="Bolsa de Compras" className='w-8'/></a></li>
+            <li><Link href={`${route('homepage')}`}>Home</Link></li>
+            <li><Link href={`${route('aboutpage')}`}>About</Link></li>
+            <li><Link href={`${route('storepage')}`}>Store</Link></li>
+            <li><Link href={`${route('contactpage')}`}>Contact</Link></li>/
+            <li><Link href={`${route('shoppingpage')}`}><img src={bag} alt="Shopping" className='w-8'/></Link></li> 
           </ul>
           <ul className='nav-mobile' style={{
             visibility: menuVisible ? 'visible' : 'hidden',
@@ -59,7 +61,7 @@ export default function Header() {
             height: menuVisible ? '100vh' : '0',
 
           }}>
-            <li><a href="#">Home</a></li>
+            <li><Link href={`${route('homepage')}`}>Home</Link></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Store</a></li>
             <li><a href="#">Contact</a></li>
