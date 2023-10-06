@@ -41,7 +41,7 @@ class ProductController extends Controller
         if(!$product){
             abort(404);
         }
-        return inertia('Details', [
+        return inertia('DetailsPage', [
             'product' => $product
         ]);
     }

@@ -1,0 +1,36 @@
+.amount {
+    width: fit-content;
+    background-color: hsl(223, 64%, 98%);
+
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+select{
+    background-color: hsl(223, 64%, 98%);
+}
+.right-side .content h1, h6{
+    color:  #51b7b0;
+}
+.options a button{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background-color:#51b7b0;
+    padding: 10px 35px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 700;
+}
+.options a button:hover{
+    opacity: 0.7;
+}
+.no-select {
+    -webkit-user-select:none;  
+    -moz-user-select:none;     
+    -ms-user-select:none;      
+    user-select:none;  
+  } 

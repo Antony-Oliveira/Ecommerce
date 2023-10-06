@@ -1,7 +1,8 @@
 import menu from '@/assets/icons/menu.svg'
-import '../c-header/Header.css'
+import bag from '@/assets/icons/shopping-bag.svg'
+import './Header.css'
 import { useState, useEffect, useRef } from 'react';
-//t
+
 export default function Header() {
 
 
@@ -15,7 +16,7 @@ export default function Header() {
   // Adiciona um evento de escuta para detectar cliques fora do menu
   useEffect (() => {
     document.addEventListener("click", handleClickOutside, true);
-
+    
     // Retorna uma função para remover o evento de escuta quando o componente é desmontado
     return () => {
       document.removeEventListener("click", handleClickOutside, true);
@@ -39,37 +40,33 @@ export default function Header() {
   }
 
   return (
-    <div className='header flex justify-between p-[2%] bg-slate-300 border-x-fuchsia-50 '>
-      <h1>Logo</h1>
-      <div className="menu-desktop">
-        <ul className='nav flex gap-3'>
-          <li><a href="a">Home</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">Carrinho</a></li>
-          <li><a href="#">Conta</a></li>
-          <li><a href="#">Contato</a></li>
-        </ul>
+    <div className='header p-[2%] bg-slate-300 border-x-fuchsia-50 w-full'>
+      <div className='flex justify-between w-full'>
+          <h1>Logo</h1>
+          <a href="#" className='btn' onClick={(e) => { e.preventDefault(); toggleMenu(); }}ref={refOne}>
+              <img src={menu} alt="Menu" className='w-5' />
+          </a>  
+          <ul className='nav'>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Store</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#"><img src={bag} alt="Bolsa de Compras" className='w-8'/></a></li>
+          </ul>
+          <ul className='nav-mobile' style={{
+            visibility: menuVisible ? 'visible' : 'hidden',
+            overflowY: menuVisible ? 'auto' : 'hidden',
+            height: menuVisible ? '100vh' : '0',
+
+          }}>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Store</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#"><img src={bag} alt="Bolsa de Compras" className='w-8'/></a></li>
+          </ul>
       </div>
-      <div className="menu" >
-        <a href="#" className='btn' onClick={toggleMenu} ref={refOne}>
-          <img src={menu} alt="Menu" className='w-5' />
-        </a>
-        <ul
-            className='nav bg-slate-300 gap-2'
-            style={{
-              visibility: menuVisible ? 'visible' : 'hidden',
-              overflow: menuVisible ? 'auto' : '',
-              height: menuVisible ? '100vh' : '0'
-            }}
-        >
-          {/* Conteúdo do menu que aparece quando o botão é clicado */}
-          <li><a href="/a">Home</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">Carrinho</a></li>
-          <li><a href="#">Conta</a></li>
-          <li><a href="#">Contato</a></li>
-        </ul>
-      </div>
+
     </div>
   )
 }

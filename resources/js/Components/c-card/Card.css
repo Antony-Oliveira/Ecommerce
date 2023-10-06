@@ -19,7 +19,7 @@
     font-size: 14px;
     color: #51b7b0;
 }
-.content img{
+.card .content img{
     width: 50px;
     height: 50px;
     line-height: 50px;
@@ -34,3 +34,7 @@
 .stars .star{
     @apply  text-yellow-300;
 }
+
+/* @media screen and (max-width: 750px) {
+    
+} */
