@@ -38,11 +38,13 @@ class ProductController extends Controller
     {
 
         $product = Product::find($id);
+        $products = Product::all();
         if(!$product){
             abort(404);
         }
         return inertia('DetailsPage', [
-            'product' => $product
+            'product' => $product,
+            'products' => $products
         ]);
     }
 

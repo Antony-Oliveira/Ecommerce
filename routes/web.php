@@ -24,6 +24,7 @@ Route::get('/AboutPage', [PageController::class, 'aboutpage'])->name("aboutpage"
 Route::get('/StorePage', [PageController::class, 'storepage'])->name("storepage");
 Route::get('/ContactPage', [PageController::class, 'contactpage'])->name("contactpage");
 Route::get('/ShoppingPage', [PageController::class, 'shoppingpage'])->name("shoppingpage");
+Route::get('/DetailsPage', [PageController::class, 'detailspage'])->name('detailspage');
 
 
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.details');

@@ -9,7 +9,7 @@
     top: 0;
     left: 0;
 }
-.btn, .nav-mobile{
+.header .btn, .nav-mobile{
     display: none;
 }
 /* flex justify-center items-center gap-10 */
@@ -21,7 +21,7 @@
 }
 
 @media screen and (max-width: 800px){
-    .btn{
+    .header .btn{
         display: flex;
         z-index: 1000;  
     }

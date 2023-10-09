@@ -52,7 +52,7 @@ export default function Header() {
             <li><Link href={`${route('homepage')}`}>Home</Link></li>
             <li><Link href={`${route('aboutpage')}`}>About</Link></li>
             <li><Link href={`${route('storepage')}`}>Store</Link></li>
-            <li><Link href={`${route('contactpage')}`}>Contact</Link></li>/
+            <li><Link href={`${route('contactpage')}`}>Contact</Link></li>
             <li><Link href={`${route('shoppingpage')}`}><img src={bag} alt="Shopping" className='w-8'/></Link></li> 
           </ul>
           <ul className='nav-mobile' style={{
