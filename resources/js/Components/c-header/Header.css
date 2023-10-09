@@ -12,14 +12,12 @@
 .header .btn, .nav-mobile{
     display: none;
 }
-/* flex justify-center items-center gap-10 */
 .nav{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
-
 @media screen and (max-width: 800px){
     .header .btn{
         display: flex;

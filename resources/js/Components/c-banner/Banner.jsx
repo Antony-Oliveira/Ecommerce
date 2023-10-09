@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from '@inertiajs/react';
 import './Banner.css'
 
 
@@ -10,7 +11,11 @@ export default function Banner() {
           <h2>Super value deals</h2>
           <h1>On all products</h1>
           <p>Save more with coupons & up to 70% off</p>
-          <button>Shop Now</button>
+          <button>
+            <Link href={`${route('storepage')}`}>
+              Shop Now
+            </Link>
+          </button>
         </div>
     </div>
   )

@@ -6,10 +6,10 @@ import cart from '@/assets/icons/carrinho-de-compra.svg'
 function Details({product}) {
 
   return (
-    <div className='flex flex-wrap items-center justify-center m-10 gap-10'>
+    <div className='details flex flex-wrap items-center justify-center m-10 gap-10'>
         <div className='left-side'>
             <div className="items">
-                <div className="select-image w-[400px] p-1 gap-5">
+                <div className="select-image max-w-[400px] p-1 gap-5">
                     <img src={product.image} alt="PHOTO" className='w-full rounded-lg' />
                 </div>
                 <div className="thumbnails flex justify-evenly max-w-[400px] gap-2 p-1">

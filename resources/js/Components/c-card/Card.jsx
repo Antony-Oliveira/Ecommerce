@@ -6,7 +6,7 @@ import '@/Components/c-card/Card.css'
 export default function Card({product}) {
   return (
   <>
-      <div className="card border-2 p-2 max-w-[256px] hover:shadow-2xl cursor-pointer rounded-xl">
+      <div className="card border-2 hover:shadow-2xl cursor-pointer rounded-xl">
           <img src={product.image} alt={product.name}/>
           <div className="desc p-3">
             <span>{product.category}</span>
@@ -15,7 +15,7 @@ export default function Card({product}) {
             <div className='content flex justify-between relative'>
                 <h4 className='font-bold my-2'>R${product.price}</h4>
                 
-                <Link href={`${route('product.details', {id: product.id})}`} className="btn bg-blue-600 text-white stroke-1 border-2 p-2 absolute bottom-1.5 right-1 rounded-lg hover:opacity-90 border-none outline-none">
+                <Link href={`${route('product.details', {id: product.id})}`} className="btn text-white stroke-1 bottom-1.5 right-1 hover:opacity-90 border-none outline-none">
                   Comprar
                 </Link>
             </div>

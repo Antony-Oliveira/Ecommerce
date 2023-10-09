@@ -22,7 +22,12 @@ class PageController extends Controller
         return inertia('AboutPage');
     }
     public function storepage(){
-        return inertia('StorePage');
+        $products = Product::all();
+        
+        return inertia('StorePage', [
+            'products' => $products, 
+            'tittle' => 'Ecommerce'
+        ]);
     }
     public function shoppingpage(){
         return inertia('ShoppingPage');

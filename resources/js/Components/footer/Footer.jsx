@@ -7,7 +7,7 @@ export default function Footer() {
     <div className='footer flex flex-wrap justify-center gap-10 section-p1'>
         <div className="col">
             <h1>LOGO</h1>
-            <h4>Contato</h4>
+            <h4 className='font-bold'>Contato</h4>
             <p><strong>Endereço:</strong> 562 Welligton Road, Street 32, San Francisco</p>
             <p><strong>Contato:</strong> +01 2222 365 /(+99) 01 2345 6789</p>
             <p><strong>Horario:</strong>  10:00 - 18:00, Mon - Sat</p>
@@ -16,23 +16,23 @@ export default function Footer() {
             </div>
         </div>
         <div className="col">
-            <h4>About</h4>
+            <h4 className='font-bold'>About</h4>
             <p>Informações de Entrega</p>
             <p>Política de Privacidade</p>
             <p>Termos e Condições</p>
             <p>Entre em Contato conosco</p>
         </div>
         <div className="col">
-            <h4>Minha Conta</h4>
+            <h4 className='font-bold'>Minha Conta</h4>
             <p>Carrinho de Compras</p>
             <p>Acompanhar meu Pedido</p>
             <p>Ajuda</p>
         </div>
         <div className='col'>
-            <h4 className='mb-5'>Secured Payment Gateways</h4>
+            <h4 className='mb-5 font-bold'>Secured Payment Gateways</h4>
             <img src={img} alt="" />
         </div>
-        <div className="copy">
+        <div className="copy w-full">
             <p className='text-center'>© 2023. Breno Nogueira - React Ecommerce Template</p>
         </div>
     </div>

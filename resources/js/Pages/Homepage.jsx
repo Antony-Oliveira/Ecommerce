@@ -11,10 +11,10 @@ const Homepage = ({ products }) => {
         <>
             <Header />
             <Banner />
-            <div className="section-p1">
+            <div className="flex justify-center flex-wrap gap-10 section-p1">
                 <h2 className='h2-title pb-2'>Produtos em Estoque</h2>
                 <p className='text-center pb-5'>Coleção Verão Nova Moda</p>
-                <div className="flex justify-center flex-wrap gap-10">
+                <div className="flex flex-wrap justify-center gap-10">
                     {products.map((product) => (<Card key={product.id} product={product} />))}
                 </div>
             </div>
@@ -22,9 +22,9 @@ const Homepage = ({ products }) => {
             <div className="flex justify-center flex-wrap gap-10 section-p1">
                 {products.map((product) => (<Card key={product.id} product={product} />))}
             </div>
+            
             <Footer />
-
-            <button onClick={() => setIsOpen(true)}>Abrir Diálogo</button>
+            {/* <button onClick={() => setIsOpen(true)}>Abrir Diálogo</button> */}
 
         </>
     )
