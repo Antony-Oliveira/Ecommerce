@@ -13,7 +13,7 @@ export default function Card({product}) {
             <h5 className='text-base font-bold my-1.5'>{product.name}</h5>
             <span className='font-normal'>Estoque: {product.amount}</span>
             <div className='content flex justify-between relative'>
-                <h4 className='font-bold my-2'>R${product.price},00</h4>
+                <h4 className='font-bold my-2'>R${product.price}</h4>
                 
                 <Link href={`${route('product.details', {id: product.id})}`} className="btn bg-blue-600 text-white stroke-1 border-2 p-2 absolute bottom-1.5 right-1 rounded-lg hover:opacity-90 border-none outline-none">
                   Comprar
