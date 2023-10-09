@@ -34,7 +34,12 @@ export default function Header() {
       setMenuVisible(false); // Fecha o menu quando clicar fora dele
     }
   }
-
+  const [estado, setEstado] = useState(false);
+  
+  const ativo = () => {
+    setEstado(!estado);
+  }
+  console.log(estado);
   const desktop = () => {
     if(menuVisible){
       console.log(true)
@@ -49,11 +54,11 @@ export default function Header() {
               <img src={menu} alt="Menu" className='w-5' />
           </a>  
           <ul className='nav'>
-            <li><Link href={`${route('homepage')}`}>Home</Link></li>
-            <li><Link href={`${route('aboutpage')}`}>About</Link></li>
-            <li><Link href={`${route('storepage')}`}>Store</Link></li>
-            <li><Link href={`${route('contactpage')}`}>Contact</Link></li>
-            <li><Link href={`${route('shoppingpage')}`}><img src={bag} alt="Shopping" className='w-8'/></Link></li> 
+            <li><Link href={`${route('homepage')}`} className="link" >Home</Link></li>
+            <li><Link href={`${route('aboutpage')}`} className="link">About</Link></li>
+            <li><Link href={`${route('storepage')}`} className="link">Store</Link></li>
+            <li><Link href={`${route('contactpage')}`} className="link">Contact</Link></li>
+            <li><Link href={`${route('shoppingpage')}`} className="link"><img src={bag} alt="Shopping" className='w-8'/></Link></li> 
           </ul>
           <ul className='nav-mobile' style={{
             visibility: menuVisible ? 'visible' : 'hidden',

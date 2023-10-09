@@ -21,7 +21,9 @@ export default function ContactPage() {
             <textarea cols="30" rows="10"></textarea>
           </div>
         </div>
-        <div className='bg-black w-[800px] h-[400px] p-1' ></div>
+        <div className='bg-black w-[800px] h-[400px] p-1 flex justify-center items-center' >
+          <h1 className='text-white'>FRAME DO GOOGLE MAPS</h1>
+        </div>
       </div>
       <Footer />
     </>
