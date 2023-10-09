@@ -4,7 +4,7 @@ import Footer from "@/Components/footer/Footer"
 import { More } from "@/Components/c-more/More"
 import Card from "@/Components/c-card/Card"
 import { useState } from 'react';
-// Testanndo Breno 1
+
 const Homepage = ({ products }) => {
     const [isOpen, setIsOpen] = useState(false);
     return (
