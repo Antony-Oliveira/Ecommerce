@@ -33,13 +33,7 @@ export default function Header() {
     if (!refOne.current.contains(e.target)) {
       setMenuVisible(false); // Fecha o menu quando clicar fora dele
     }
-  }
-  const [estado, setEstado] = useState(false);
-  
-  const ativo = () => {
-    setEstado(!estado);
-  }
-  console.log(estado);
+  } 
   const desktop = () => {
     if(menuVisible){
       console.log(true)

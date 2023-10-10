@@ -27,7 +27,7 @@ export default function AboutPage() {
       <h2 className='font-bold text-2xl text-center'>Nosso Time</h2>
       <div className='flex flex-wrap justify-center items-center gap-20 m-10  '>
         <div className='card flex items-center justify-center flex-col max-w-xs'>
-            <img src={img} class="rounded-full w-[100px]" />
+            <img src={img} className="rounded-full w-[100px]" />
             <h3>Nome do Membro</h3>
             <p className='w-full'>
               lorem lorel lorem lorel lorem lorel lorem lorel lorem lorel lorem lorel
