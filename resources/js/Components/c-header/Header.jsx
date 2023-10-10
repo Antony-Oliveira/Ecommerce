@@ -66,11 +66,11 @@ export default function Header() {
             height: menuVisible ? '100vh' : '0',
 
           }}>
-            <li><Link href={`${route('homepage')}`}>Home</Link></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Store</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#"><img src={bag} alt="Bolsa de Compras" className='w-8'/></a></li>
+          <li><Link href={`${route('homepage')}`} className="link" >Home</Link></li>
+            <li><Link href={`${route('aboutpage')}`} className="link">About</Link></li>
+            <li><Link href={`${route('storepage')}`} className="link">Store</Link></li>
+            <li><Link href={`${route('contactpage')}`} className="link">Contact</Link></li>
+            <li><Link href={`${route('shoppingpage')}`} className="link"><img src={bag} alt="Shopping" className='w-8'/></Link></li> 
           </ul>
       </div>
 

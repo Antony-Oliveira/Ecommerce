@@ -39,5 +39,12 @@ h2.h2-title {
 
 .contact input{
     outline: none;
-
+}   
+.final .btn, .cupom .btn{
+    background-color: #088178;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 4px;
 }
