@@ -12,7 +12,7 @@ export default function Banner() {
           <h1>On all products</h1>
           <p>Save more with coupons & up to 70% off</p>
           <button>
-            <Link href={`${route('storepage')}`}>
+            <Link href={`${route('product.form')}`}>
               Shop Now
             </Link>
           </button>

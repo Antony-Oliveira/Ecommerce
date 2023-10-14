@@ -22,7 +22,7 @@ const Homepage = ({ products }) => {
             <div className="flex justify-center flex-wrap gap-10 section-p1">
                 {products.map((product) => (<Card key={product.id} product={product} />))}
             </div>
-            
+
             <Footer />
             {/* <button onClick={() => setIsOpen(true)}>Abrir Diálogo</button> */}
 

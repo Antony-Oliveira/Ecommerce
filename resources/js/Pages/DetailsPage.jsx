@@ -12,17 +12,7 @@ export default function DetailsPage({product , products}) {
     <div>
         <Header />
         <Details product={product}/>
-        <More />
-        <div className="flex justify-center flex-wrap gap-10 section-p1">
-          {Array.isArray(products) ? (
-            products.map((product) => <Card key={product.id} product={product} />)
-          ) : (
-            // Trate o caso em que products não é um array
-            // Pode ser uma mensagem de erro, um componente alternativo, etc.
-            <p>Products não é um array válido.</p>
-          )}
-        </div>
-        <Footer /> 
+        <Footer />
     </div>
   )
 }

@@ -29,6 +29,8 @@ Route::get('/DetailsPage', [PageController::class, 'detailspage'])->name('detail
 
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.details');
 
+Route::get('/create/product', [ProductController::class, 'create'])->name('product.form');
+Route::post('/create/product', [ProductController::class, 'store'])->name('product.store');
 
 
 // Route::get('/teste', [PageController::class, 'teste'])->middleware('');

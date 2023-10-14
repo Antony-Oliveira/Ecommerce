@@ -7,7 +7,10 @@
 import axios from 'axios';
 window.axios = axios;
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.buildUrl = function(endpoint){
+    return `http://127.0.0.1:8000/storage/product_images/${endpoint}`;
 
+}
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
