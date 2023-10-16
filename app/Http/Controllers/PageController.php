@@ -22,7 +22,7 @@ class PageController extends Controller
         return inertia('AboutPage');
     }
     public function storepage(){
-        $products = Product::all();
+        $products = Product::with('images')->get();
 
         return inertia('StorePage', [
             'products' => $products,
