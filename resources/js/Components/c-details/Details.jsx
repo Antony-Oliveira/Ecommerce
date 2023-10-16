@@ -2,24 +2,30 @@ import React, { useState } from 'react';
 import './Details.css'
 import Count from '@/Components/c-count/Count'
 import cart from '@/assets/icons/carrinho-de-compra.svg'
+import { getImageUrl } from '@/firebase';
 
 function Details({ product }) {
-
+    const [imageUrls, setImageUrls] = useState([]);
     React.useEffect(() => {
-        console.log(product); // Console.log quando o componente é montado
+        const fetchImageUrls = async () => {
+            const urls = await Promise.all(product.images.map(image => getImageUrl(image.path)));
+            setImageUrls(urls);
+        };
 
-      }, []);
+        fetchImageUrls();
+    }, [product.images]);
+
     return (
         <div className='details flex flex-wrap items-center justify-center m-10 gap-10'>
             <div className='left-side'>
                 <div className="items">
                     <div className="select-image max-w-[400px] p-1 gap-5">
-                        <img src={buildUrl(product.images[0].path)} alt="PHOTO" className='w-full rounded-lg' />
+                        <img src={imageUrls[0]} alt="PHOTO" className='w-full rounded-lg' />
                     </div>
                     <div className="thumbnails flex justify-evenly max-w-[400px] gap-2 p-1">
-                        {product.images.map((image, index) => (
+                        {imageUrls.map((image, index) => (
                             <div className="thumbnail" key={index} onClick={() => handleThumbnailClick(index)}>
-                                <img src={buildUrl(image.path)} alt="PHOTO" className='w-full rounded-lg' />
+                                <img src={image} alt="PHOTO" className='w-full rounded-lg' />
                             </div>
                         ))}
                     </div>

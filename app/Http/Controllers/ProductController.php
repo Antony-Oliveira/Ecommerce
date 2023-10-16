@@ -6,11 +6,23 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
+use Kreait\Firebase\Contract\Storage;
+
 class ProductController extends Controller
 {
+
+    public $storage;
+
+    public function __construct(Storage $storage)
+    {
+        $this->storage = $storage;
+    }
+
+
     /**
      * Display a listing of the resource.
      */
+
     public function index()
     {
     }
@@ -28,7 +40,6 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-
         try {
             $validator = Validator::make($request->all(), [
                 'images' => 'required|array',
@@ -50,19 +61,25 @@ class ProductController extends Controller
 
             if ($request->hasFile('images')) {
                 $images = $request->file('images');
+                $imagesData = [];
 
                 foreach ($images as $image) {
                     $extension = $image->extension();
                     $imageName = md5($image->getClientOriginalName() . strtotime("now")) . "." . $extension;
-                    $image->move(storage_path('app/public/product_images'), $imageName);
-                    $imagesData[] = ['path' => $imageName];
-                }
 
+                    $this->storage->getBucket()->upload(
+                        file_get_contents($image->path()),
+                        ['name' => 'product-images/' . $imageName]
+                    );
+
+                    $imagePath = 'product-images/' . $imageName;
+                    $imagesData[] = ['path' => $imagePath];
+                }
                 $product->images()->createMany($imagesData);
             }
 
             return response()->json(['message' => 'Produto criado com sucesso'], 200);
-        }catch(\Exception $error){
+        } catch (\Exception $error) {
             return response()->json(['error' => $error->getMessage()]);
         }
     }
@@ -70,15 +87,11 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(int $id)
+    public function show(Product $product)
     {
-
-        $product = Product::with('images')->find($id);
-        if (!$product) {
-            abort(404, "Produto não existente");
-        }
+        $product->load('images');
         return inertia('DetailsPage', [
-            'product' => $product,
+            'product' => $product
         ]);
     }
 

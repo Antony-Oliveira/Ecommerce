@@ -27,7 +27,7 @@ Route::get('/ShoppingPage', [PageController::class, 'shoppingpage'])->name("shop
 Route::get('/DetailsPage', [PageController::class, 'detailspage'])->name('detailspage');
 
 
-Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.details');
+Route::get('/products/{product}', [ProductController::class, 'show'])->name('product.details');
 
 Route::get('/create/product', [ProductController::class, 'create'])->name('product.form');
 Route::post('/create/product', [ProductController::class, 'store'])->name('product.store');
