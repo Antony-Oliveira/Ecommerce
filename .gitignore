@@ -20,3 +20,4 @@ yarn-error.log
 *.test.jsx
 /storage/logs
 firebase_credentials.json
+resources/js/firebase.js
