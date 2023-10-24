@@ -1,5 +1,5 @@
 .card{
-    width: 23%;
+    width: 21%;
     min-width: 250px;
     padding: 10px 12px;
     cursor: pointer;
@@ -7,9 +7,10 @@
 }
 .card img{
     width: 100%;
-    height: auto;
-    padding: 10px; 
+    height: 400px;
+    padding: 10px;
     border-radius: 15px;
+    object-fit: cover;
 }
 .desc {
     line-height: 15px;
@@ -28,7 +29,7 @@
    width: 100%;
     line-height: 50px;
     border-radius: 50px;
-    padding: 15px 0; 
+    padding: 15px 0;
     opacity: 1;
     background-color: #51b7b0;
 }
@@ -42,7 +43,7 @@
     border-radius: 4px;
     border: none;
     outline: none;
-    transition: .2s ease;  
+    transition: .2s ease;
     padding: 0.5rem;
     position: absolute;
 
@@ -53,7 +54,14 @@
 
 @media screen and (max-width: 750px) {
     .card{
-        width: 100%;
+        width: 20rem;
         height: auto;
-    }    
+    }
+}
+
+.card img {
+    height: 400px; /* Defina a altura desejada para as imagens, por exemplo, 200px */
+    object-fit: cover; /* Isso garante que a imagem cubra a altura definida e mantenha sua proporção */
+    padding: 10px;
+    border-radius: 15px;
 }

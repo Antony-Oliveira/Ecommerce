@@ -8,7 +8,7 @@ import React from 'react'
 export default function AboutPage() {
   return (
     <>
-      <Header/>
+      <Header activePage="aboutpage"/>
       <div className='flex justify-center items-center flex-wrap gap-10'>
           <img src={svg} alt="Svg de pessoas fazendo Compras" className='w-[40%]'/>
           <div className='p-2'>

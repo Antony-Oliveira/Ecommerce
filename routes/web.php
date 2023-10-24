@@ -1,5 +1,7 @@
 <?php
 
+use App\Events\TestEvent;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -35,6 +37,7 @@ Route::post('/create/product', [ProductController::class, 'store'])->name('produ
 
 // Route::get('/teste', [PageController::class, 'teste'])->middleware('');
 
+Route::inertia('/test', 'FileInput.test');
 
 
 

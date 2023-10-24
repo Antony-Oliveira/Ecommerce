@@ -5,7 +5,7 @@ import React from 'react'
 export default function ContactPage() {
   return (
     <>
-      <Header/>
+      <Header activePage="contactpage"/>
       <div className="contact flex flex-wrap justify-center items-center gap-10 m-10">
         <div className='flex flex-col w-full'>
           <div className='flex flex-col'>

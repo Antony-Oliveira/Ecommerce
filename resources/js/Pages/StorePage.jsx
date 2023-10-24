@@ -7,7 +7,7 @@ import '@/../../resources/css/app.css'
 export default function StorePage({products}) {
   return (
     <>
-      <Header/>
+      <Header activePage="storepage"/>
       <div className='hero section-p1 '>
         <h1>Compre agora!</h1>
         <p>Entregas gratuitas para <span className='color'>Fortaleza!</span></p>

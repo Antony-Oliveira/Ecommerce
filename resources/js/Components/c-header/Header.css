@@ -1,6 +1,6 @@
 .header{
     display: flex;
-    align-items: center;  
+    align-items: center;
     padding: 20px 80px;
     background-color: #e3E6F3;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.07);
@@ -34,13 +34,17 @@
     transition: .3s;
 }
 
+.nav li .link.active::after {
+    width: 100%;
+}
+
 .nav li .link:hover:after{
     width: 100%;
 }
 @media screen and (max-width: 800px){
     .header .btn{
         display: flex;
-        z-index: 1000;  
+        z-index: 1000;
     }
 
     .nav{
@@ -55,7 +59,7 @@
         overflow-y: hidden;
         position: fixed;
         left: 0;
-        right: 0; 
+        right: 0;
         top: 0;
         bottom: 0;
         width: 100%;
@@ -83,4 +87,4 @@
         position: relative;
         padding: 10px;
     }
-}   
+}

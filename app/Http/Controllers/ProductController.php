@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NewProduct;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -43,7 +44,7 @@ class ProductController extends Controller
         try {
             $validator = Validator::make($request->all(), [
                 'images' => 'required|array',
-                'images.*' => 'image|mimes:jpeg,png,gif|max:2048',
+                'images.*' => 'image|mimes:jpeg,png,gif|max:10000',
             ]);
 
             if ($validator->fails()) {
@@ -77,7 +78,7 @@ class ProductController extends Controller
                 }
                 $product->images()->createMany($imagesData);
             }
-
+            event(new NewProduct());
             return response()->json(['message' => 'Produto criado com sucesso'], 200);
         } catch (\Exception $error) {
             return response()->json(['error' => $error->getMessage()]);
