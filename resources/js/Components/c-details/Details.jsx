@@ -3,13 +3,19 @@ import './Details.css'
 import Count from '@/Components/c-count/Count'
 import cart from '@/assets/icons/carrinho-de-compra.svg'
 import { getImageUrl } from '@/firebase';
+import ImageGallery from '@/Components/DetailsCarousel/ImageGallery';
+import loading from "slick-carousel/slick/ajax-loader.gif"
 
 function Details({ product }) {
     const [imageUrls, setImageUrls] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
     React.useEffect(() => {
+        console.log("Details renderizado")
         const fetchImageUrls = async () => {
             const urls = await Promise.all(product.images.map(image => getImageUrl(image.path)));
             setImageUrls(urls);
+            setIsLoading(false);
         };
 
         fetchImageUrls();
@@ -19,15 +25,8 @@ function Details({ product }) {
         <div className='details flex flex-wrap items-center justify-center m-10 gap-10'>
             <div className='left-side'>
                 <div className="items">
-                    <div className="select-image max-w-[400px] p-1 gap-5">
-                        <img src={imageUrls[0]} alt="PHOTO" className='w-full rounded-lg' />
-                    </div>
-                    <div className="thumbnails flex justify-evenly max-w-[400px] gap-2 p-1">
-                        {imageUrls.map((image, index) => (
-                            <div className="thumbnail" key={index} onClick={() => handleThumbnailClick(index)}>
-                                <img src={image} alt="PHOTO" className='w-full rounded-lg' />
-                            </div>
-                        ))}
+                    <div className="select-image max-w-[400px]  p-10 gap-5">
+                        {isLoading ? <img src={loading} className='justify-center'></img> : <ImageGallery images={imageUrls}></ImageGallery>}
                     </div>
                 </div>
 
@@ -45,12 +44,10 @@ function Details({ product }) {
                         </select>
                     </label>
                     <p>
-                        {/* These low-profile sneakers are yout perfect casual wear companion. Featurin a durable rubber outer sole, They'll withstand everythin the weather can offer. */}
                         {product.details}
                     </p>
                     <div className="price flex flex-col w-full text-[14px]">
                         <p className='price text-[1rem]'>R${product.price}</p>
-                        {/* <p className="off text-[12px]">R$250,00</p> */}
                     </div>
                     <div className="options flex items-center gap-5">
                         <Count />

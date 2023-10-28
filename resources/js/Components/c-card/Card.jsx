@@ -11,7 +11,7 @@ export default function Card({ product }) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const url = await getImageUrl(product.images[0].path);
+        const url = await getImageUrl(product.image.path);
         setImageUrl(url);
         setIsLoading(false);
       } catch (error) {
@@ -20,7 +20,7 @@ export default function Card({ product }) {
     }
 
     fetchData();
-  }, [product.images]);
+  }, [product.image]);
 
   return (
     <div className="card border-2 hover:shadow-2xl cursor-pointer rounded-xl">

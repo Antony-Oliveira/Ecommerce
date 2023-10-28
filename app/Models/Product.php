@@ -9,12 +9,26 @@ class Product extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name', 'price', 'details', 'category', 'images'
+        'name', 'price', 'details', 'category', 'images', 'firstImage'
     ];
 
-    public function images(){
+    /**
+     * Todas as imagens do Product
+     * @author @Antony-Oliveira <antony.caiquec@gmail.com>
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function images()
+    {
         return $this->hasMany(ProductImages::class);
     }
 
+    /**
+     * Primeira imagem do Product
+     * @author @Antony-Oliveira <antony.caiquec@gmail.com>
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function image(){
+        return $this->hasOne(ProductImages::class);
+    }
 
 }

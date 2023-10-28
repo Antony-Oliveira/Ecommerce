@@ -7,19 +7,22 @@ import { useState } from 'react';
 import { router } from "@inertiajs/react";
 import React from "react";
 
-const Homepage = ({ products, user }) => {
 
+const Homepage = ({ products, user }) => {
 
     const [isOpen, setIsOpen] = useState(false);
 
     React.useEffect(() => {
-       Echo.channel('new-product-channel')
-       .listen('NewProduct', () =>{
-        router.reload({ only: ['products'] });
-       })
+        console.dir(products)
+        Echo.channel('new-product-channel')
+            .listen('NewProduct', () => {
+                router.reload({ only: ['products'] });
+
+            })
     }, []);
     return (
         <>
+
             <Header activePage="homepage" />
             <Banner />
             <div className="flex justify-center flex-wrap gap-10 section-p1">

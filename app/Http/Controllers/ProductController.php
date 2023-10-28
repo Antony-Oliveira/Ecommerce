@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Events\NewProduct;
+use App\Jobs\UploadImages;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage as FacadesStorage;
 use Illuminate\Support\Facades\Validator;
 
 use Kreait\Firebase\Contract\Storage;
@@ -44,7 +46,7 @@ class ProductController extends Controller
         try {
             $validator = Validator::make($request->all(), [
                 'images' => 'required|array',
-                'images.*' => 'image|mimes:jpeg,png,gif|max:10000',
+                'images.*' => 'image|mimes:jpeg,png,gif|max:19000', // valor temporario até ver o resize
             ]);
 
             if ($validator->fails()) {
@@ -61,24 +63,19 @@ class ProductController extends Controller
             $product->save();
 
             if ($request->hasFile('images')) {
-                $images = $request->file('images');
+                $images =  $request->file('images');
                 $imagesData = [];
 
                 foreach ($images as $image) {
                     $extension = $image->extension();
                     $imageName = md5($image->getClientOriginalName() . strtotime("now")) . "." . $extension;
 
-                    $this->storage->getBucket()->upload(
-                        file_get_contents($image->path()),
-                        ['name' => 'product-images/' . $imageName]
-                    );
-
+                    FacadesStorage::put("temp/".$imageName, file_get_contents($image->path()));
                     $imagePath = 'product-images/' . $imageName;
-                    $imagesData[] = ['path' => $imagePath];
+                    $imagesData[] = ['path' => $imagePath, 'content' => $image->path(), 'name' => $imageName];
                 }
-                $product->images()->createMany($imagesData);
+                UploadImages::dispatch($product, $imagesData);
             }
-            event(new NewProduct());
             return response()->json(['message' => 'Produto criado com sucesso'], 200);
         } catch (\Exception $error) {
             return response()->json(['error' => $error->getMessage()]);
