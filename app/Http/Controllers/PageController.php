@@ -10,7 +10,7 @@ class PageController extends Controller
     public function homepage(){
 
         return inertia('Homepage', [
-            'products' => Product::with('images')->get(),
+            'products' => Product::with(['image'])->get(),
             'title' => 'Ecommerce'
         ]);
 
